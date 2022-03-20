@@ -28,8 +28,30 @@ class _IntroScreenState extends State<IntroScreen> {
                   'We believe the world is much beautiful as each person gets better')
             ],
           ),
-          SmoothPageIndicator(
-              controller: _controller, count: 3, effect: const WormEffect()),
+          Align(
+            alignment: const Alignment(0, 0.5),
+            child: SmoothPageIndicator(
+                controller: _controller,
+                count: 3,
+                effect: const WormEffect(
+                  strokeWidth: 2.0,
+                  activeDotColor: Colors.black,
+                )),
+          ),
+          Align(
+            alignment: const Alignment(0, 0.75),
+            child: Container(
+              margin: const EdgeInsets.symmetric(horizontal: 20),
+              height: 60,
+              alignment: Alignment.center,
+              decoration: BoxDecoration(
+                  color: Colors.black, borderRadius: BorderRadius.circular(7)),
+              child: Text(
+                'Next',
+                style: TextStyle(color: Colors.white),
+              ),
+            ),
+          ),
         ],
       ),
     );
@@ -37,6 +59,7 @@ class _IntroScreenState extends State<IntroScreen> {
 
   Widget introPage(String imgUrl, String title, String message) {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [Image.asset('assets/image/$imgUrl.png')],
     );
   }
