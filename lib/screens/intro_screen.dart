@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class IntroScreen extends StatefulWidget {
   const IntroScreen({Key? key}) : super(key: key);
@@ -23,10 +24,12 @@ class _IntroScreenState extends State<IntroScreen> {
                   'Sign up to disconnect and hire for your next project'),
               introPage('get_in_touch', 'Getting Started is Super Easy',
                   'Instantly build your profile, learn and apply for your next job remotely'),
-              Container(color: Colors.yellow),
-              Container(color: Colors.green),
+              introPage('back_to_back', 'Personalized just for you',
+                  'We believe the world is much beautiful as each person gets better')
             ],
           ),
+          SmoothPageIndicator(
+              controller: _controller, count: 3, effect: const WormEffect()),
         ],
       ),
     );
