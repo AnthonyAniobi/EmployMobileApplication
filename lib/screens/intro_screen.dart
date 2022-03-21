@@ -1,3 +1,5 @@
+import 'package:employ/constants/custom_fonts.dart';
+import 'package:employ/theme/custom_widgets/custom_buttons.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -38,20 +40,7 @@ class _IntroScreenState extends State<IntroScreen> {
                   activeDotColor: Colors.black,
                 )),
           ),
-          Align(
-            alignment: const Alignment(0, 0.75),
-            child: Container(
-              margin: const EdgeInsets.symmetric(horizontal: 20),
-              height: 60,
-              alignment: Alignment.center,
-              decoration: BoxDecoration(
-                  color: Colors.black, borderRadius: BorderRadius.circular(7)),
-              child: Text(
-                'Next',
-                style: TextStyle(color: Colors.white),
-              ),
-            ),
-          ),
+          Align(alignment: const Alignment(0, 0.75), child: CButton.primary()),
         ],
       ),
     );
@@ -60,9 +49,11 @@ class _IntroScreenState extends State<IntroScreen> {
   Widget introPage(String imgUrl, String title, String message) {
     return Column(
       children: [
-        const Spacer(),
+        const Spacer(flex: 2),
         Image.asset('assets/image/$imgUrl.png'),
-        const Spacer(),
+        CFont.primary(title),
+        CFont.small(message),
+        const Spacer(flex: 3),
       ],
     );
   }

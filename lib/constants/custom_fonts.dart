@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 class CFont {
   static Widget primary(
     String text, {
-    Color color = CColor.grey,
+    Color color = CColor.black,
     int maxLines = 5,
     TextAlign align = TextAlign.center,
   }) {
