@@ -59,8 +59,11 @@ class _IntroScreenState extends State<IntroScreen> {
 
   Widget introPage(String imgUrl, String title, String message) {
     return Column(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: [Image.asset('assets/image/$imgUrl.png')],
+      children: [
+        const Spacer(),
+        Image.asset('assets/image/$imgUrl.png'),
+        const Spacer(),
+      ],
     );
   }
 }
