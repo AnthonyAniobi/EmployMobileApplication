@@ -3,7 +3,7 @@ import 'package:employ/constants/custom_fonts.dart';
 import 'package:flutter/material.dart';
 
 class CButton {
-  static Widget primary() {
+  static Widget primary({required String text, required Function onPressed}) {
     return GestureDetector(
       onTap: () {
         // print();

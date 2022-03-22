@@ -40,7 +40,15 @@ class _IntroScreenState extends State<IntroScreen> {
                   activeDotColor: Colors.black,
                 )),
           ),
-          Align(alignment: const Alignment(0, 0.75), child: CButton.primary()),
+          Align(
+              alignment: const Alignment(0, 0.75),
+              child: CButton.primary(
+                  text: 'Next',
+                  onPressed: () {
+                    _controller.nextPage(
+                        duration: Duration(milliseconds: 500),
+                        curve: Curves.ease);
+                  })),
         ],
       ),
     );
