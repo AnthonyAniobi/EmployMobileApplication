@@ -2,7 +2,7 @@ import 'package:employ/constants/custom_colors.dart';
 import 'package:employ/constants/custom_fonts.dart';
 import 'package:employ/models/user.dart';
 import 'package:employ/screens/select_user/widgets/users_button.dart';
-import 'package:employ/screens/sign_in/sign_in.dart';
+import 'package:employ/screens/sign_in/sign_in_page.dart';
 import 'package:employ/widgets/custom_buttons.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
@@ -18,7 +18,7 @@ class _SelectUserState extends State<SelectUser> {
   UserType? _userType;
 
   void _nextPage() {
-    Navigator.pushReplacement(
+    Navigator.push(
         context,
         PageTransition(
           type: PageTransitionType.fade,

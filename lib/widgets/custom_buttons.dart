@@ -29,8 +29,8 @@ class CButton {
         onPressed();
       },
       child: Container(
-        margin: const EdgeInsets.symmetric(horizontal: 50),
-        height: 50,
+        margin: const EdgeInsets.symmetric(horizontal: 20),
+        height: 60,
         alignment: Alignment.center,
         decoration: BoxDecoration(
             color: Colors.white,
