@@ -1,6 +1,6 @@
 import 'package:employ/constants/custom_fonts.dart';
 import 'package:employ/screens/select_user/select_user.dart';
-import 'package:employ/theme/custom_widgets/custom_buttons.dart';
+import 'package:employ/widgets/custom_buttons.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:page_transition/page_transition.dart';
