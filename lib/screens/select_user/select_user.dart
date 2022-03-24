@@ -16,6 +16,7 @@ class SelectUser extends StatefulWidget {
 
 class _SelectUserState extends State<SelectUser> {
   UserType? _userType;
+  final int _duration = 300;
 
   void _nextPage() {
     Navigator.push(
@@ -67,7 +68,7 @@ class _SelectUserState extends State<SelectUser> {
                 ],
               ),
               AnimatedContainer(
-                duration: const Duration(milliseconds: 500),
+                duration: Duration(milliseconds: _duration),
                 height: _userType == null ? 0 : 60,
                 child: CButton.primary(text: 'Continue', onPressed: _nextPage),
               )

@@ -1,3 +1,5 @@
+import 'package:employ/constants/custom_colors.dart';
+import 'package:employ/constants/custom_fonts.dart';
 import 'package:flutter/material.dart';
 
 class SignupPage extends StatelessWidget {
@@ -6,7 +8,11 @@ class SignupPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(),
+      backgroundColor: CColor.white,
+      body: Column(children: [
+        const SizedBox(height: 50),
+        CFont.primary('Signup Page'),
+      ]),
     );
   }
 }

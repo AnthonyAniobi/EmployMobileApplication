@@ -30,10 +30,15 @@ Widget userSelectionButton({
                   width: 5,
                   color: type == selected ? CColor.red : CColor.black),
               boxShadow: [
-                BoxShadow(
-                    offset: const Offset(5, 4),
-                    blurRadius: 4,
-                    color: CColor.black.withOpacity(0.25))
+                type == selected
+                    ? BoxShadow(
+                        offset: const Offset(7, 8),
+                        blurRadius: 7,
+                        color: CColor.black.withOpacity(0.25))
+                    : BoxShadow(
+                        offset: const Offset(5, 4),
+                        blurRadius: 4,
+                        color: CColor.black.withOpacity(0.25)),
               ]),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,

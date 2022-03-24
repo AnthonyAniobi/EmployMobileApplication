@@ -2,10 +2,12 @@ import 'package:employ/constants/custom_colors.dart';
 import 'package:employ/constants/custom_fonts.dart';
 import 'package:employ/constants/custom_icons.dart';
 import 'package:employ/screens/sign_in/widgets/alert_dialog.dart';
+import 'package:employ/screens/signup_pages/signup_page.dart';
 import 'package:employ/utilities/validator.dart';
 import 'package:employ/widgets/custom_buttons.dart';
 import 'package:employ/widgets/custom_textfield.dart';
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 
 class SigninPage extends StatefulWidget {
   const SigninPage({Key? key}) : super(key: key);
@@ -17,6 +19,7 @@ class SigninPage extends StatefulWidget {
 class _SigninPageState extends State<SigninPage> {
   final TextEditingController _controller = TextEditingController();
   final int _duration = 300;
+  double _opacity = 1;
 
   void _goBack() {
     Navigator.pop(context);
@@ -30,6 +33,9 @@ class _SigninPageState extends State<SigninPage> {
           builder: (context) {
             return ValidEmail(title: '', message: 'Email verified sucessfully');
           });
+      setState(() {
+        _opacity = 0;
+      });
     } else {
       showDialog(
           context: context,
@@ -46,7 +52,14 @@ class _SigninPageState extends State<SigninPage> {
 
   void _facebookSignin() {}
 
-  void _signup() {}
+  void _signup() {
+    Navigator.push(
+        context,
+        PageTransition(
+          type: PageTransitionType.fade,
+          child: SignupPage(),
+        ));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -121,11 +134,15 @@ class _SigninPageState extends State<SigninPage> {
                   child: CFont.small('Sign up', color: CColor.red)),
             ]),
             const SizedBox(height: 50),
-            CButton.primary(
-                text: 'Get started',
-                onPressed: () {
-                  _verifyEmail(_controller.text);
-                }),
+            AnimatedOpacity(
+              duration: Duration(milliseconds: _duration),
+              opacity: _opacity,
+              child: CButton.primary(
+                  text: 'Get started',
+                  onPressed: () {
+                    _verifyEmail(_controller.text);
+                  }),
+            ),
             const SizedBox(height: 10),
           ],
         ),
