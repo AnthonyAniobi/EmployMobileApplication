@@ -12,7 +12,10 @@ class PasswordEntryPage extends StatelessWidget {
       body: Column(
         children: [
           const SizedBox(height: 50),
-          CFont.primary('Password Entry'),
+          CFont.primary('Welcome Onboard', color: CColor.black),
+          CFont.small('Please enter your password to continue',
+              color: CColor.black),
+          CFont.small('Password', color: CColor.black),
         ],
       ),
     );
