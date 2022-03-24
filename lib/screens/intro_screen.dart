@@ -1,4 +1,5 @@
 import 'package:employ/constants/custom_fonts.dart';
+import 'package:employ/constants/custom_images.dart';
 import 'package:employ/screens/select_user/select_user.dart';
 import 'package:employ/widgets/custom_buttons.dart';
 import 'package:flutter/material.dart';
@@ -57,11 +58,11 @@ class _IntroScreenState extends State<IntroScreen> {
               }
             },
             children: [
-              introPage('collaborate', 'Hire Top Talents',
+              introPage(CImg.collaborate, 'Hire Top Talents',
                   'Sign up to disconnect and hire for your next project'),
-              introPage('get_in_touch', 'Getting Started is Super Easy',
+              introPage(CImg.intouch, 'Getting Started is Super Easy',
                   'Instantly build your profile, learn and apply for your next job remotely'),
-              introPage('back_to_back', 'Personalized just for you',
+              introPage(CImg.backed, 'Personalized just for you',
                   'We believe the world is much beautiful as each person gets better')
             ],
           ),
@@ -91,7 +92,7 @@ class _IntroScreenState extends State<IntroScreen> {
     return Column(
       children: [
         const Spacer(flex: 2),
-        Image.asset('assets/image/$imgUrl.png'),
+        Image.asset(imgUrl),
         CFont.primary(title),
         CFont.small(message),
         const Spacer(flex: 3),
