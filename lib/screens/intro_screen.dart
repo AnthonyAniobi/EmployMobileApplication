@@ -1,7 +1,9 @@
 import 'package:employ/constants/custom_fonts.dart';
+import 'package:employ/screens/select_user/select_user.dart';
 import 'package:employ/theme/custom_widgets/custom_buttons.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:page_transition/page_transition.dart';
 
 class IntroScreen extends StatefulWidget {
   const IntroScreen({Key? key}) : super(key: key);
@@ -11,7 +13,28 @@ class IntroScreen extends StatefulWidget {
 }
 
 class _IntroScreenState extends State<IntroScreen> {
-  PageController _controller = PageController();
+  final PageController _controller = PageController();
+  String _buttonText = 'Next';
+  int _pageIndex = 0;
+
+  void _buttonClick() {
+    if (_pageIndex == 2) {
+      _nextPage();
+      return;
+    }
+    _controller.animateToPage(_pageIndex + 1,
+        duration: const Duration(milliseconds: 500),
+        curve: Curves.linearToEaseOut);
+  }
+
+  void _nextPage() {
+    Navigator.pushReplacement(
+        context,
+        PageTransition(
+          type: PageTransitionType.fade,
+          child: SelectUser(),
+        ));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -21,6 +44,18 @@ class _IntroScreenState extends State<IntroScreen> {
         children: [
           PageView(
             controller: _controller,
+            onPageChanged: (index) {
+              _pageIndex = index;
+              if (index == 2) {
+                setState(() {
+                  _buttonText = 'Let\'s go';
+                });
+              } else {
+                setState(() {
+                  _buttonText = 'Next';
+                });
+              }
+            },
             children: [
               introPage('collaborate', 'Hire Top Talents',
                   'Sign up to disconnect and hire for your next project'),
@@ -43,11 +78,9 @@ class _IntroScreenState extends State<IntroScreen> {
           Align(
               alignment: const Alignment(0, 0.75),
               child: CButton.primary(
-                  text: 'Next',
+                  text: _buttonText,
                   onPressed: () {
-                    _controller.nextPage(
-                        duration: Duration(milliseconds: 500),
-                        curve: Curves.ease);
+                    _buttonClick();
                   })),
         ],
       ),

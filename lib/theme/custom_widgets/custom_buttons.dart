@@ -6,7 +6,7 @@ class CButton {
   static Widget primary({required String text, required Function onPressed}) {
     return GestureDetector(
       onTap: () {
-        // print();
+        onPressed();
       },
       child: Container(
         margin: const EdgeInsets.symmetric(horizontal: 50),
@@ -14,7 +14,7 @@ class CButton {
         alignment: Alignment.center,
         decoration: BoxDecoration(
             color: Colors.black, borderRadius: BorderRadius.circular(7)),
-        child: CFont.primary('Next', color: CColor.white),
+        child: CFont.primary(text, color: CColor.white),
       ),
     );
   }
