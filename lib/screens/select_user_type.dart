@@ -6,14 +6,14 @@ import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:page_transition/page_transition.dart';
 
-class IntroScreen extends StatefulWidget {
-  const IntroScreen({Key? key}) : super(key: key);
+class SelectUserType extends StatefulWidget {
+  const SelectUserType({Key? key}) : super(key: key);
 
   @override
-  _IntroScreenState createState() => _IntroScreenState();
+  _SelectUserTypeState createState() => _SelectUserTypeState();
 }
 
-class _IntroScreenState extends State<IntroScreen> {
+class _SelectUserTypeState extends State<SelectUserType> {
   final PageController _controller = PageController();
   String _buttonText = 'Next';
   int _pageIndex = 0;

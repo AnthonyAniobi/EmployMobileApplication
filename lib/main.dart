@@ -1,4 +1,4 @@
-import 'package:employ/screens/intro_screen.dart';
+import 'package:employ/screens/select_user_type.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const IntroScreen(),
+      home: const SelectUserType(),
     );
   }
 }

@@ -1,6 +1,7 @@
 import 'package:employ/constants/custom_colors.dart';
 import 'package:employ/constants/custom_fonts.dart';
 import 'package:employ/screens/import_resume/import_resume.dart';
+import 'package:employ/screens/login/sign_in_page.dart';
 import 'package:employ/widgets/custom_buttons.dart';
 import 'package:employ/widgets/custom_textfield.dart';
 import 'package:flutter/material.dart';
@@ -13,6 +14,15 @@ class SignupPage extends StatelessWidget {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _phoneNumberController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+
+  void _login(BuildContext context) {
+    Navigator.push(
+        context,
+        PageTransition(
+          type: PageTransitionType.fade,
+          child: SigninPage(),
+        ));
+  }
 
   void _signup(BuildContext context) {
     Navigator.push(
@@ -37,7 +47,6 @@ class SignupPage extends StatelessWidget {
                   onPressed: () {}, icon: const Icon(Icons.arrow_back_ios)),
             ],
           ),
-          const SizedBox(height: 40),
           CFont.primary('Signup Page'),
           const SizedBox(height: 10),
           CFont.secondary('Create an account in few minutes',
@@ -87,7 +96,11 @@ class SignupPage extends StatelessWidget {
           Row(mainAxisAlignment: MainAxisAlignment.center, children: [
             CFont.small('Already have an account? ', color: CColor.black),
             const SizedBox(width: 5),
-            CFont.small('Login', color: CColor.red),
+            InkWell(
+                onTap: () {
+                  _login(context);
+                },
+                child: CFont.small('Login', color: CColor.red)),
           ]),
           const SizedBox(height: 100),
         ]),

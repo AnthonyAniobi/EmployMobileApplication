@@ -1,27 +1,60 @@
+import 'dart:ffi';
+
+import 'package:employ/constants/custom_colors.dart';
 import 'package:employ/constants/custom_fonts.dart';
 import 'package:employ/constants/custom_images.dart';
+import 'package:employ/screens/import_resume/widgets/logout_dialog.dart';
+import 'package:employ/screens/select_user_type.dart';
 import 'package:employ/widgets/custom_buttons.dart';
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 
 class ImportResume extends StatelessWidget {
   const ImportResume({Key? key}) : super(key: key);
 
+  Future<void> _goBack(BuildContext context) async {
+    bool _logout = await showDialog<bool>(
+            context: context,
+            builder: (context) {
+              return LogoutWarning();
+            }) ??
+        false;
+    if (_logout) {
+      Navigator.pushAndRemoveUntil(
+          context,
+          PageTransition(
+            type: PageTransitionType.fade,
+            child: SelectUserType(),
+          ),
+          (route) => false);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: CColor.white,
       body: Column(
         children: [
           const SizedBox(height: 50),
           Row(
             children: [
               IconButton(
-                  onPressed: () {}, icon: const Icon(Icons.arrow_back_ios)),
+                  onPressed: () {
+                    _goBack(context);
+                  },
+                  icon: const Icon(Icons.arrow_back_ios)),
             ],
           ),
+          const Spacer(flex: 1),
           Image.asset(CImg.announce),
+          const SizedBox(height: 20),
           CFont.secondary('Finish your profile to personalize your search'),
+          const SizedBox(height: 20),
           CButton.primary(text: 'Import Resume', onPressed: () {}),
+          const SizedBox(height: 30),
           CButton.primary(text: 'Fill in manually', onPressed: () {}),
+          const Spacer(flex: 2),
         ],
       ),
     );
