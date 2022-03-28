@@ -1,7 +1,7 @@
 import 'package:employ/constants/custom_colors.dart';
 import 'package:employ/constants/custom_fonts.dart';
 import 'package:employ/constants/custom_icons.dart';
-import 'package:employ/screens/sign_in/widgets/alert_dialog.dart';
+import 'package:employ/screens/login/widgets/alert_dialog.dart';
 import 'package:employ/screens/signup_pages/signup_page.dart';
 import 'package:employ/utilities/validator.dart';
 import 'package:employ/widgets/custom_buttons.dart';
@@ -120,9 +120,7 @@ class _SigninPageState extends State<SigninPage> {
               ),
             ]),
             const SizedBox(height: 50),
-            CField.text(
-              hint: 'Enter email adress',
-              icon: Icons.mail_outline,
+            CField.email(
               controller: _controller,
               onSubmit: _verifyEmail,
             ),

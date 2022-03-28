@@ -1,6 +1,6 @@
 import 'package:employ/constants/custom_colors.dart';
 import 'package:employ/constants/custom_fonts.dart';
-import 'package:employ/screens/sign_in/password_entry_page.dart';
+import 'package:employ/screens/login/password_entry_page.dart';
 import 'package:employ/widgets/custom_buttons.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';

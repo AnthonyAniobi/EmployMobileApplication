@@ -1,8 +1,10 @@
 import 'package:employ/constants/custom_colors.dart';
 import 'package:employ/constants/custom_fonts.dart';
+import 'package:employ/screens/import_resume/import_resume.dart';
 import 'package:employ/widgets/custom_buttons.dart';
 import 'package:employ/widgets/custom_textfield.dart';
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 
 class PasswordEntryPage extends StatelessWidget {
   PasswordEntryPage({Key? key}) : super(key: key);
@@ -14,7 +16,14 @@ class PasswordEntryPage extends StatelessWidget {
     Navigator.pop(context);
   }
 
-  void login(BuildContext context) {}
+  void _login(BuildContext context) {
+    Navigator.push(
+        context,
+        PageTransition(
+          type: PageTransitionType.fade,
+          child: ImportResume(),
+        ));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -32,12 +41,12 @@ class PasswordEntryPage extends StatelessWidget {
                   icon: const Icon(Icons.arrow_back_ios)),
             ],
           ),
-          const Spacer(),
+          const Spacer(flex: 2),
           CFont.primary('Welcome Onboard!', color: CColor.black),
           const SizedBox(height: 20),
           CFont.small('Please enter your password to continue',
               color: CColor.black),
-          const Spacer(),
+          const Spacer(flex: 2),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -64,13 +73,13 @@ class PasswordEntryPage extends StatelessWidget {
               ),
             ],
           ),
-          const Spacer(),
+          const Spacer(flex: 3),
           CButton.primary(
               text: 'Login',
               onPressed: () {
-                login(context);
+                _login(context);
               }),
-          const Spacer(),
+          const Spacer(flex: 3),
         ],
       ),
     );
