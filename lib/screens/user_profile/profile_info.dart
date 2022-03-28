@@ -1,4 +1,5 @@
 import 'package:employ/constants/custom_colors.dart';
+import 'package:employ/constants/custom_fonts.dart';
 import 'package:flutter/material.dart';
 
 class ProfilePage extends StatelessWidget {
@@ -9,7 +10,23 @@ class ProfilePage extends StatelessWidget {
     return Scaffold(
       backgroundColor: CColor.white,
       body: Column(
-        children: [],
+        children: [
+          const SizedBox(height: 40),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                IconButton(onPressed: () {}, icon: Icon(Icons.arrow_back_ios)),
+                CFont.primary('Profile'),
+                IconButton(
+                    onPressed: () {}, icon: Icon(Icons.settings_outlined)),
+              ],
+            ),
+          ),
+          const SizedBox(height: 10),
+          Container(width: double.maxFinite, height: 2, color: CColor.grey),
+        ],
       ),
     );
   }
