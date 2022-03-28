@@ -1,8 +1,10 @@
 import 'package:employ/constants/custom_colors.dart';
 import 'package:employ/constants/custom_fonts.dart';
+import 'package:employ/screens/import_resume/import_resume.dart';
 import 'package:employ/widgets/custom_buttons.dart';
 import 'package:employ/widgets/custom_textfield.dart';
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 
 class SignupPage extends StatelessWidget {
   SignupPage({Key? key}) : super(key: key);
@@ -11,6 +13,15 @@ class SignupPage extends StatelessWidget {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _phoneNumberController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+
+  void _signup(BuildContext context) {
+    Navigator.push(
+        context,
+        PageTransition(
+          type: PageTransitionType.fade,
+          child: ImportResume(),
+        ));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -67,7 +78,11 @@ class SignupPage extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 50),
-          CButton.primary(text: 'Sign up', onPressed: () {}),
+          CButton.primary(
+              text: 'Sign up',
+              onPressed: () {
+                _signup(context);
+              }),
           const SizedBox(height: 20),
           Row(mainAxisAlignment: MainAxisAlignment.center, children: [
             CFont.small('Already have an account? ', color: CColor.black),
