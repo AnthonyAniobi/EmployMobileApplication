@@ -1,6 +1,7 @@
 import 'package:employ/constants/custom_colors.dart';
 import 'package:employ/constants/custom_fonts.dart';
 import 'package:employ/models/user.dart';
+import 'package:employ/screens/employer/employer_home.dart';
 import 'package:employ/screens/select_user/widgets/users_button.dart';
 import 'package:employ/screens/login/sign_in_page.dart';
 import 'package:employ/widgets/custom_buttons.dart';
@@ -19,12 +20,15 @@ class _SelectUserState extends State<SelectUser> {
   final int _duration = 300;
 
   void _nextPage() {
-    Navigator.push(
-        context,
-        PageTransition(
-          type: PageTransitionType.fade,
-          child: SigninPage(),
-        ));
+    if (_userType != null) {
+      Navigator.push(
+          context,
+          PageTransition(
+            type: PageTransitionType.fade,
+            child:
+                _userType == UserType.employer ? EmployerHome() : SigninPage(),
+          ));
+    }
   }
 
   void _selectUserType(UserType userType) {

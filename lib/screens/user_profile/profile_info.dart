@@ -5,6 +5,10 @@ import 'package:flutter/material.dart';
 class ProfilePage extends StatelessWidget {
   const ProfilePage({Key? key}) : super(key: key);
 
+  void _goBack(BuildContext context) {
+    Navigator.pop(context);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,7 +21,11 @@ class ProfilePage extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                IconButton(onPressed: () {}, icon: Icon(Icons.arrow_back_ios)),
+                IconButton(
+                    onPressed: () {
+                      _goBack(context);
+                    },
+                    icon: Icon(Icons.arrow_back_ios)),
                 CFont.primary('Profile'),
                 IconButton(
                     onPressed: () {}, icon: Icon(Icons.settings_outlined)),
