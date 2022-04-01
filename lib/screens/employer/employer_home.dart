@@ -1,3 +1,4 @@
+import 'package:employ/constants/custom_fonts.dart';
 import 'package:flutter/material.dart';
 
 class EmployerHome extends StatefulWidget {
@@ -46,11 +47,19 @@ class _EmployerHomeState extends State<EmployerHome> {
               collapseMode: CollapseMode.pin,
               centerTitle: true,
               title: Text(
-                "Pokedex",
+                "profile",
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
               // background: _buildCard(),
             ),
+          ),
+          Wrap(
+            children: [
+              Chip(label: CFont.small('text')),
+              Chip(label: CFont.small('text')),
+              Chip(label: CFont.small('text')),
+              Chip(label: CFont.small('text')),
+            ],
           )
         ],
       ),
